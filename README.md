@@ -96,9 +96,10 @@ SigninLogs
 let TimePeriodThreshold = timespan(7d);
 SigninLogs
 | where TimeGenerated > ago(TimePeriodThreshold)
-| where UserPrincipalName == "username@domain.com"
-| project TimeGenerated, UserPrincipalName, UserId, City, State, Country
+| where UserPrincipalName == "8811889492639b92fff4e20a7f5d6b518a963d04d9bc5fa674684b4919636761@lognpacific.com"
+| project TimeGenerated, UserPrincipalName, UserId, City = tostring(parse_json(LocationDetails).city), State = tostring(parse_json(LocationDetails).state), Country = tostring(parse_json(LocationDetails).countryOrRegion)
 | order by TimeGenerated desc
+
 ```
 
 ![Screenshot](https://github.com/user-attachments/assets/2739121d-5914-4468-a480-cecee0883432)
