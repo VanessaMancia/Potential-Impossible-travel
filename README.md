@@ -78,7 +78,7 @@ SigninLogs
    * **Account ID:** `AadUserId` → `UserId`
    * **Display Name:** `UserPrincipalName` → `Value`
 
-![Screenshot](https://github.com/user-attachments/assets/2a9006f6-7d4c-4499-85b9-9afdd5a37c30)
+![Screenshot](https://github.com/user-attachments/assets/8fa7386b-e0f5-4450-b697-98bdd052a8d8)
 
 ---
 
