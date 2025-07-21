@@ -149,13 +149,24 @@ The alert was determined to be a **Benign Positive**:
 ### Next Steps
 
 * 🔍 Pivot to deeper investigation if needed:
+* Disable account and escalate **only if** further suspicious activity is confirmed
 
 ```kql
 AzureActivity
 | where tostring(parse_json(Claims)["http://schemas.microsoft.com/identity/claims/objectidentifier"]) == "AzureADObjectID"
 ```
 
-* Disable account and escalate **only if** further suspicious activity is confirmed
+## 🛠️ Explanation
+
+- **AzureActivity**: This is the main log table storing Azure Resource Manager activity events (e.g., deployments, resource modifications).
+
+- **Claims**: A JSON-formatted field in the activity logs that includes identity-related metadata.
+
+- **`parse_json(...)["objectidentifier"]`**: Extracts the unique Azure AD Object ID from the nested JSON.
+
+- **`tostring(...)`**: Converts the extracted value to string format so it can be compared.
+
+- **`== "AzureADObjectID"`**: Compares the extracted value to a specific Object ID. *(Replace with the actual Object ID you are analyzing.)*
 
 ---
 
