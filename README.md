@@ -51,14 +51,15 @@ This query is designed to identify users who appear to log in from multiple, dis
 * If a user signs in from more than one location within the period, they're flagged as having a potential impossible travel instance.
 
 ```kql
-let TimePeriodThreshold = timespan(7d);
-let NumberOfDifferentLocationAllowed = 1;
+let TimePeriodThreshold = timespan(7d); // Change to how far back you want to look
+let NumberOfDifferentLocationsAllowed = 2;
 SigninLogs
 | where TimeGenerated > ago(TimePeriodThreshold)
-| summarize count() by UserPrincipalName, City = tostring(parse_json(LocationDetails).city), State = tostring(parse_json(LocationDetails).state), Country = tostring(parse_json(LocationDetails).countryOrRegion)
-| project UserPrincipalName, City, State, Country
-| summarize PotentialImpossibleTravelInstances = count() by UserPrincipalName
-| where PotentialImpossibleTravelInstances > NumberOfDifferentLocationAllowed
+| summarize Count = count() by UserPrincipalName, UserId, City = tostring(parse_json(LocationDetails).city), State = tostring(parse_json(LocationDetails).state), Country = tostring(parse_json(LocationDetails).countryOrRegion)
+| project UserPrincipalName, UserId, City, State, Country
+| summarize PotentialImpossibleTravelInstances = count() by UserPrincipalName, UserId
+| where PotentialImpossibleTravelInstances > NumberOfDifferentLocati
+
 ```
 
 ![Screenshot](https://github.com/user-attachments/assets/c69cab46-5d5f-4769-a6f7-bc803a16e2dc)
