@@ -61,7 +61,7 @@ SigninLogs
 | where PotentialImpossibleTravelInstances > NumberOfDifferentLocationAllowed
 ```
 
-![Screenshot](https://github.com/user-attachments/assets/1934650d-0b0c-47c6-a3a8-c45d8d8eadb0)
+![Screenshot](https://github.com/user-attachments/assets/c69cab46-5d5f-4769-a6f7-bc803a16e2dc)
 
 3. **Analytics Rule Settings:**
 
