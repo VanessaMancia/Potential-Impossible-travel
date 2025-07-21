@@ -67,7 +67,7 @@ SigninLogs
 
    * **Name:** Potential Impossible Travel Alert
    * **Description:** Detects logins from multiple geographic regions.
-   * **Frequency:** Every 4 Hours
+   * **Frequency:** Every 5 Hours
    * **Lookup Period:** Last 24 Hours
    * **Incident Creation:** Enabled
    * **Stop after Alert:** Yes
@@ -76,6 +76,8 @@ SigninLogs
 
    * **Account ID:** `AadUserId` → `UserId`
    * **Display Name:** `UserPrincipalName` → `Value`
+
+![Screenshot](https://github.com/user-attachments/assets/2a9006f6-7d4c-4499-85b9-9afdd5a37c30)
 
 ---
 
