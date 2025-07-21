@@ -101,13 +101,39 @@ SigninLogs
 | order by TimeGenerated desc
 
 ```
-
-![Screenshot](https://github.com/user-attachments/assets/2739121d-5914-4468-a480-cecee0883432)
+![Screenshot](https://github.com/user-attachments/assets/30d45f2e-8b85-48e4-8be6-6bbc809d0a60)
 
 ### Observed Findings
 
-* **Account 1:** Logins from 3 nearby locations within 4 days — considered normal behavior
-* **Account 2:** Logins from 4 locations within 7 days, all within reasonable commuting distance
+## 📌 Observed Findings
+
+- **All logins occurred in Arizona, USA**  
+  Only two cities were observed: **Chandler** and **Casa Grande**
+
+- **Chronological inconsistency**  
+  On **7/20/2025**, the user logged in from:
+  - **Chandler** at **4:45 PM** and **4:50 PM**
+  - **Casa Grande** at **5:15 PM**  
+
+  This order of locations does not align with realistic travel, suggesting:
+  - Inaccurate geolocation data  
+  - Use of VPN or proxy services  
+
+- **Short time intervals between sign-ins**  
+  Logins occurred within **minutes of each other**, raising suspicion of:
+  - Automated sign-in behavior  
+  - Potential session redirection via VPN infrastructure  
+
+- **Consistent identity**  
+  All entries were tied to the same `UserPrincipalName` and `UserId`, indicating:
+  - No signs of user impersonation  
+  - No device spoofing detected  
+
+- **Conclusion**  
+  While no true impossible travel was detected based on geographic distance,  
+  the **timing and location inconsistencies** suggest a **benign false positive** or  
+  **infrastructure-based anomaly** (e.g., VPN).
+
 
 ---
 
@@ -147,7 +173,7 @@ AzureActivity
 
 ## ✅ Closure
 
-1. Confirm incident is resolved
+1. Confirm the incident is resolved
 2. Mark as **Benign Positive** or **False Positive** as appropriate
 3. Finalize documentation and close the case
 
